@@ -1,0 +1,595 @@
+//fonts
+@font-face {
+  font-family: "Satisfy";
+  src: url("../../static/fonts/satisfy/Satisfy-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  src: url("../../static/fonts/jost/Jost-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Lora";
+  src: url("../../static/fonts/lora/Lora-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Fjalla One";
+  src: url("../../static/fonts/fjalla_one/FjallaOne-Regular.ttf")
+    format("truetype");
+}
+
+//page basics
+
+//font variables
+$font-stack: Helvetica, sans-serif;
+$primary-color: #a9b3cc;
+$secondary-color: #567b96;
+$header-bg: #1e2a4b;
+$menu-a: #d0e4f2;
+$menu-a-hover-tablet: #7aaacc;
+$menu-bg: #151e36;
+$orange-button: #de6a4e;
+$orange-shadow: #b3543d;
+$logo-font: "Satisfy";
+$sanserif: "Jost";
+$serif: "Lora";
+
+$bp-phone: 640px;
+$bp-small-screen: 684px;
+$bp-tablet: 768px;
+$bp-tablet-ls: 1024px;
+$bp-desktop: 1280px;
+$bp-container: 1600px;
+
+//mix-ins
+
+html {
+  background-color: $secondary-color;
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  h3 {
+    font-size: 1.17em;
+  }
+
+  h4 {
+    font-size: 1em;
+  }
+}
+
+.container {
+  position: absolute;
+  width: 100%;
+
+  box-sizing: border-box;
+  height: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+//header
+.header {
+  display: flex;
+  flex-wrap: no-wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: $menu-bg;
+  box-shadow: 0 0 18px $menu-bg;
+
+  @media (min-width: $bp-tablet) {
+    text-align: left;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .header-title {
+    text-align: center;
+
+    @media (min-width: $bp-tablet) {
+      padding: 0 2em;
+      text-align: left;
+    }
+
+    .title {
+      font-family: $logo-font;
+      color: $secondary-color;
+      font-weight: normal;
+      font-size: 3em;
+      margin-bottom: 0;
+
+      @media (min-width: $bp-tablet) {
+        margin-bottom: 0.25em;
+        margin-left: 0.25em;
+      }
+    }
+  }
+
+  /* Button styling */
+
+  .menu-icon {
+    color: $secondary-color;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0.75em;
+    font-size: 1.5em;
+
+    &:hover,
+    &:focus {
+      color: $primary-color;
+    }
+
+    @media (min-width: $bp-tablet) {
+      display: none;
+    }
+  }
+
+  /* Button styling */
+  .menu-toggle {
+    display: inline-block;
+    padding: 0.5em 0.25em;
+    line-height: 1em;
+    font-size: 1em;
+    color: $primary-color;
+
+    @media (min-width: $bp-tablet) {
+      display: none;
+      href: "";
+    }
+  }
+
+  .menu-toggle:hover,
+  .menu-toggle:focus {
+    color: $secondary-color;
+  }
+
+  /*
+ Default styles + Mobile first
+ Offscreen menu style
+*/
+  .main-menu {
+    position: absolute;
+    display: none;
+    top: 0;
+    right: 0;
+    height: 100%;
+    margin-top: 3em;
+    margin-bottom: 1em;
+    overflow-y: visible;
+    overflow-x: hidden;
+    transition: left 0.3s ease, box-shadow 0.3s ease;
+    z-index: 999;
+
+    @media (min-width: $bp-tablet) {
+      display: flex;
+      overflow-y: hidden;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 15vh;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: center;
+
+      //border: 2px solid green;
+
+      /* Hide shadow w/ -8px while 'closed' */
+      -webkit-box-shadow: -8px 0 8px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: -8px 0 8px rgba(0, 0, 0, 0.5);
+      box-shadow: -8px 0 8px rgba(0, 0, 0, 0.5);
+      width: 70%;
+      height: 80%;
+      background: $menu-bg;
+      font-family: jost;
+      border-radius: 7px;
+      min-height: 250px;
+      max-height: 350px;
+
+      @media (min-width: $bp-tablet) {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: flex-start;
+
+        background: inherit;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        margin-top: 18px;
+        margin-right: 0.25em;
+        padding: 0;
+        width: 100%;
+        height: 20%;
+        overflow: hidden;
+        overflow-y: hidden;
+        scroll: no;
+        //border: green solid 2px;
+      }
+
+      @media (min-width: $bp-tablet-ls) {
+        margin-top: 12px;
+        margin-right: 1em;
+        font-size: 1.2em;
+      }
+    }
+
+    .donate-link {
+      @media (min-width: $bp-tablet) {
+        box-shadow: 0 0 40px 40px $orange-button inset;
+        -webkit-transition: all 150ms ease-in-out;
+        transition: all 150ms ease-in-out;
+        box-sizing: border-box;
+        align-items: center;
+        vertical-align: middle;
+        background: $orange-button;
+        color: #fff;
+        border-radius: 7px;
+        padding: 10px 35px;
+
+        margin-top: 3px;
+        margin-left: 1em;
+        margin-right: 1em;
+
+        text-transform: uppercase;
+
+        @media (min-width: $bp-tablet-ls) {
+          margin-top: 4px;
+          margin-left: 2em;
+        }
+
+        &:hover,
+        &:focus {
+          background: $orange-shadow;
+          color: $primary-color;
+
+          box-shadow: 0 0 10px 0 $orange-button inset,
+            0 0 7px 2px $orange-shadow;
+          border: 1px solid $primary-color;
+        }
+      }
+    }
+
+    .donate-link-active {
+      display: none;
+    }
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.1em 15px;
+      line-height: 1em;
+      font-size: 1em;
+      color: $menu-a;
+      text-decoration: none;
+      //border: 2px solid blue;
+
+      @media (min-width: $bp-tablet) and (max-width: $bp-tablet-ls) {
+        padding: 1.1em 10px;
+      }
+    }
+
+    a:hover,
+    a:focus {
+      background: $secondary-color;
+      text-decoration: none;
+
+      @media (min-width: $bp-tablet) {
+        background: none;
+        color: $menu-a-hover-tablet;
+      }
+    }
+
+    .menu-close {
+      position: absolute;
+      top: 15vh;
+      right: 15vw;
+      color: $primary-color;
+      margin-bottom: 1em;
+      z-index: 1999;
+
+      @media (min-width: $bp-tablet) {
+        display: none;
+        href: "";
+      }
+
+      .menu-x {
+        z-index: 2000;
+        font-size: 1.5em;
+        color: $primary-color;
+
+        @media (min-width: $bp-tablet) {
+          display: none;
+          href: "";
+        }
+
+        &:hover {
+          color: $secondary-color;
+        }
+      }
+      &:hover {
+        background: $menu-bg;
+      }
+    }
+  }
+}
+
+/*
+ On small devices, allow it to toggle...
+*/
+/*
+ :target for non-JavaScript
+ [aria-expanded] will be used if/when JavaScript is added to improve interaction, though it's completely optional.
+*/
+.main-menu:target,
+.main-menu[aria-expanded="true"] {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  left: 0;
+  outline: none;
+
+  -moz-box-shadow: 3px 0 12px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 3px 0 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 3px 0 12px rgba(0, 0, 0, 0.25);
+
+  @media (min-width: $bp-tablet) {
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    justify-content: flex-end;
+  }
+}
+
+.main-menu:target .menu-close,
+.main-menu[aria-expanded="true"] .menu-close {
+  z-index: 1001;
+}
+
+.main-menu:target ul,
+.main-menu[aria-expanded="true"] ul {
+  position: relative;
+  z-index: 1000;
+}
+
+/* 
+ We could us `.main-menu:target:after`, but
+ it wouldn't be clickable.
+*/
+
+.main-menu:target + .backdrop,
+.main-menu[aria-expanded="true"] + .backdrop {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 150%;
+  z-index: 998;
+  background: #000;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: default;
+
+  @media (min-width: $bp-tablet) {
+    display: none;
+  }
+}
+
+@supports (position: fixed) {
+  .main-menu,
+  .main-menu:target + .backdrop,
+  .main-menu[aria-expanded="true"] + .backdrop {
+    position: fixed;
+  }
+}
+
+.menu-toggle {
+  display: inline-block;
+  padding: 0.75em 15px;
+  line-height: 1em;
+  font-size: 1em;
+  color: #333;
+  height: 100%;
+}
+
+/* PAGE CONTENT */
+.content-container {
+  border: 2px solid yellow;
+  box-sizing: border-box;
+  box-shadow: 0 0 18px $menu-bg;
+
+  .cta-button {
+    position: relative;
+    top: 20vh;
+
+    z-index: 4000;
+    color: #fff;
+    background: $orange-button;
+    text-decoration: none;
+    padding: 2em 4em;
+  }
+}
+
+// Home Page Content
+.hero-container {
+  position: relative;
+
+  .hero-image-small {
+    display: flex;
+    flex-direction: flex-start;
+    justify-content: center;
+    max-width: 100%;
+    max-height: 100%;
+    filter: brightness(90%);
+
+    @media (min-width: $bp-phone) {
+      display: none;
+    }
+  }
+
+  .hero-image-medium {
+    display: none;
+    flex-direction: flex-start;
+    justify-content: center;
+    max-width: 100%;
+    max-height: 100%;
+    filter: brightness(90%);
+
+    @media (min-width: $bp-phone) and (max-width: $bp-tablet-ls) {
+      display: flex;
+    }
+  }
+
+  .hero-image {
+    display: none;
+    flex-direction: flex-start;
+    justify-content: center;
+    max-width: 100%;
+    overflow: hidden;
+
+    @media (min-width: $bp-tablet-ls) {
+      display: flex;
+    }
+  }
+
+  .hero-info {
+    position: absolute;
+    top: 45vh;
+    text-align: center;
+    z-index: 500;
+    border: 2px solid turquoise;
+    margin: auto;
+    left: 0;
+    right: 0;
+    padding: 0 2em;
+
+    @media (min-width: $bp-phone) {
+      top: 8vh;
+      max-width: 235px;
+      left: 24vw;
+      right: auto;
+    }
+
+    @media (min-width: $bp-small-screen) {
+      max-width: 250px;
+      left: 25vw;
+    }
+
+    @media (min-width: 800px) {
+    }
+
+    @media (min-width: $bp-tablet) {
+      top: 8vh;
+      max-width: 265px;
+      left: 27vw;
+    }
+
+    @media (min-width: $bp-tablet-ls) {
+      left: auto;
+      right: 2vw;
+      top: 18vh;
+      max-width: 375px;
+      text-align: left;
+    }
+
+    @media (min-width: 1100px) {
+      right: 0;
+      top: 20vh;
+      max-width: 400px;
+    }
+
+    @media (min-width: $bp-desktop) {
+      right: 1vw;
+      top: 20vh;
+      max-width: 450px;
+    }
+
+    @media (min-width: 1400px) {
+      right: 2vw;
+    }
+
+    @media (min-width: $bp-container) {
+      right: 4vw;
+    }
+
+    .hero-text {
+      display: flex;
+      font-size: 2em;
+      font-family: "Fjalla One";
+      margin: 0;
+      margin-bottom: 10vh;
+      padding: 0;
+      color: #fff;
+      text-shadow: 0 0 5px $menu-bg;
+
+      @media (min-width: $bp-phone) {
+        font-size: 1.8em;
+      }
+
+      @media (min-width: $bp-small-screen) {
+        font-size: 1.9em;
+      }
+
+      @media (min-width: $bp-tablet) {
+        font-size: 2.2em;
+      }
+
+      @media (min-width: $bp-tablet-ls) {
+        font-size: 2.3em;
+      }
+
+      @media (min-width: 1100px) {
+        font-size: 2.5em;
+      }
+
+      @media (min-width: $bp-desktop) {
+        font-size: 2.8em;
+        max-width: 450px;
+      }
+    }
+
+    .hero-cta-button {
+      display: relative;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      height: 1.2em;
+      width: 100%;
+
+      max-width: 350px;
+      z-index: 1500;
+      background: $orange-button;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-family: jost;
+      margin-top: 20px;
+      padding: 1em 2em;
+      border-radius: 7px;
+      color: #fff;
+      font-size: 1.2em;
+      box-shadow: 0 0 5px $menu-bg;
+      overflow: visible;
+
+      @media (min-width: $bp-phone) {
+        right: 20vw;
+        margin: auto;
+      }
+
+      &:hover,
+      &:focus {
+      }
+    }
+  }
+}
