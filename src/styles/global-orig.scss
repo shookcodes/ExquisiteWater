@@ -168,9 +168,9 @@ html {
   }
 
   /*
- Default styles + Mobile first
- Offscreen menu style
-*/
+   Default styles + Mobile first
+   Offscreen menu style
+  */
   .main-menu {
     position: absolute;
     display: none;
@@ -342,12 +342,12 @@ html {
 }
 
 /*
- On small devices, allow it to toggle...
-*/
+   On small devices, allow it to toggle...
+  */
 /*
- :target for non-JavaScript
- [aria-expanded] will be used if/when JavaScript is added to improve interaction, though it's completely optional.
-*/
+   :target for non-JavaScript
+   [aria-expanded] will be used if/when JavaScript is added to improve interaction, though it's completely optional.
+  */
 .main-menu:target,
 .main-menu[aria-expanded="true"] {
   display: flex;
@@ -380,9 +380,9 @@ html {
 }
 
 /* 
- We could us `.main-menu:target:after`, but
- it wouldn't be clickable.
-*/
+   We could us `.main-menu:target:after`, but
+   it wouldn't be clickable.
+  */
 
 .main-menu:target + .backdrop,
 .main-menu[aria-expanded="true"] + .backdrop {
@@ -528,8 +528,7 @@ html {
       display: none;
       flex-direction: flex-start;
       justify-content: center;
-      max-height: 100%;
-      width: auto;
+      max-width: 100%;
       overflow: hidden;
 
       @media (min-width: $bp-desktop) {
@@ -537,61 +536,97 @@ html {
       }
     }
 
-    .hero-overlay {
+    .hero-info {
       position: absolute;
-      top: 0;
+      top: 45vh;
+      text-align: center;
+      z-index: 500;
+      margin: auto;
       left: 0;
       right: 0;
-      bottom: 0;
+      padding: 0 2em;
 
-      .hero-info {
+      @media (min-width: $bp-phone) {
+        top: 8vh;
+        max-width: 400px;
+        left: 24vw;
+        right: auto;
+      }
+
+      @media (min-width: $bp-small-screen) {
+        left: 25vw;
+      }
+
+      @media (min-width: $bp-tablet) {
+        top: 8vh;
+        left: 27vw;
+        padding-right: 0;
+        max-width: 350px;
+      }
+
+      @media (min-width: $bp-tablet-ls) {
+        max-width: 375px;
+        left: 18vw;
+      }
+
+      @media (min-width: 1100px) {
+        right: 0;
+        left: auto;
+        top: 18vh;
+      }
+
+      @media (min-width: $bp-desktop) {
+        top: 15vh;
+        margin-right: 5vw;
+        max-width: 400px;
+      }
+
+      @media (min-width: 1400px) {
+        right: 2vw;
+      }
+
+      @media (min-width: $bp-container) {
+        right: 4vw;
+      }
+
+      .hero-text {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        z-index: 500;
-        padding: 0 2em;
-        height: 100%;
-        padding-top: 30vh;
+        font-size: 2em;
+        font-family: $hero-font;
+        margin: auto;
+        margin-bottom: 6vh;
+        padding: 0;
+        color: #fff;
+        text-shadow: 0 0 5px $navy-blue;
 
-        .hero-text {
-          font-size: 2em;
-          font-family: $hero-font;
+        @media (min-width: $bp-phone) {
+          font-size: 1.8em;
+          max-width: 235px;
+        }
 
-          padding: 0;
-          color: #fff;
-          text-shadow: 0 0 5px $navy-blue;
+        @media (min-width: $bp-small-screen) {
+          font-size: 1.9em;
+          max-width: 250px;
+        }
 
-          @media (min-width: $bp-phone) {
-            font-size: 1.8em;
-            max-width: 235px;
-          }
+        @media (min-width: $bp-tablet) {
+          font-size: 2.2em;
+          max-width: 265px;
+        }
 
-          @media (min-width: $bp-small-screen) {
-            font-size: 1.9em;
-            max-width: 250px;
-          }
+        @media (min-width: $bp-tablet-ls) {
+          font-size: 2.3em;
+          max-width: 375px;
+        }
 
-          @media (min-width: $bp-tablet) {
-            font-size: 2.2em;
-            max-width: 265px;
-          }
+        @media (min-width: 1100px) {
+          font-size: 2.5em;
+        }
 
-          @media (min-width: $bp-tablet-ls) {
-            font-size: 2.3em;
-            max-width: 375px;
-          }
-
-          @media (min-width: 1100px) {
-            font-size: 2.5em;
-          }
-
-          @media (min-width: $bp-desktop) {
-            font-size: 2.8em;
-            max-width: 450px;
-            padding-left: auto;
-          }
+        @media (min-width: $bp-desktop) {
+          font-size: 2.8em;
+          max-width: 450px;
+          padding-left: auto;
         }
       }
     }

@@ -1,11 +1,12 @@
 import React from "react"
 import { Link } from "gatsby"
-import { FaBars } from 'react-icons/fa'
+import { FaBars, FaFacebook, FaInstagram, FaRegEnvelope } from 'react-icons/fa'
 import { IoMdClose } from 'react-icons/io'
 
 
 
-export default function Header() {
+
+function Header() {
     return (
         <div class='header'>
 
@@ -33,3 +34,19 @@ export default function Header() {
         </div>
     )
 }
+
+
+function Footer() {
+    return (
+        <div class="footer">
+            <div class="icons">
+                <a href="https://facebook.com/exquisitewater"><FaFacebook class=" social-icon" /></a>
+                <a href="https://instagram.com/exquisitewater"><FaInstagram class="social-icon" /></a>
+                <Link to="/contact"><FaRegEnvelope class="social-icon" /></Link>
+            </div>
+            <div class="copyright"><span>©ExquiteWater 2020</span></div>
+        </div>
+    )
+}
+
+export { Header, Footer }

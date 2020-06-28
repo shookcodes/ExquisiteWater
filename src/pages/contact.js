@@ -1,9 +1,10 @@
 import React from "react"
-import Header from "../components/header.js"
+import Layout from "../components/layout"
 
 
 export default () =>
     <div class='container'>
-        <Header />
-        <div class="content-container">Contact</div>
+        <Layout></Layout>
     </div>
+
+
