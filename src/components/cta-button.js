@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import CTAStyles from "./cta-button.scss"
+
 
 export const CTAButtonOrange =
     (function (props) {

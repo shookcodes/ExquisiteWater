@@ -21,35 +21,24 @@ $bp-tablet-ls: 1024px;
 $bp-desktop: 1280px;
 $bp-container: 1600px;
 
-.cta-button-blue {
-  display: relative;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  height: 1.2em;
+@mixin hero-button {
+  line-height: 1.15;
   max-width: 300px;
   z-index: 1500;
-  background: $blue-button;
   text-decoration: none;
   text-transform: uppercase;
-  font-family: jost;
+  font-family: "jost";
   padding: 1em 10vw;
   border-radius: 7px;
   color: #fff;
   font-size: 1.2em;
   box-shadow: 0 0 5px $menu-bg;
-
-  @media (min-width: $bp-phone) {
-    right: 20vw;
-    margin: auto;
-    padding: 1em 3em;
-  }
-
-  @media (min-width: $bp-small-screen) {
-    right: 20vw;
-    margin: auto;
-    padding: 1em 3em;
-  }
+  margin: auto;
+  padding: 1em 3em;
+}
+.cta-button-blue {
+  @include hero-button;
+  background: $blue-button;
 
   &:hover,
   &:focus {
@@ -58,34 +47,8 @@ $bp-container: 1600px;
 }
 
 .cta-button-orange {
-  display: relative;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  height: 1.2em;
-  max-width: 300px;
-  z-index: 1500;
+  @include hero-button;
   background: $orange-button;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-family: jost;
-  padding: 1em 10vw;
-  border-radius: 7px;
-  color: #fff;
-  font-size: 1.2em;
-  box-shadow: 0 0 5px $menu-bg;
-
-  @media (min-width: $bp-phone) {
-    right: 20vw;
-    margin: auto;
-    padding: 1em 3em;
-  }
-
-  @media (min-width: $bp-small-screen) {
-    right: 20vw;
-    margin: auto;
-    padding: 1em 3em;
-  }
 
   &:hover,
   &:focus {
