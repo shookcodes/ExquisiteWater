@@ -1,0 +1,94 @@
+//variables
+$font-stack: Helvetica, sans-serif;
+$primary-color: #a9b3cc;
+$secondary-color: #567b96;
+$header-bg: #1e2a4b;
+$menu-a: #d0e4f2;
+$menu-a-hover-tablet: #7aaacc;
+$menu-bg: #151e36;
+$orange-button: #de6a4e;
+$orange-shadow: #b3543d;
+$blue-button: #2f59b7;
+$blue-shadow: #21479c;
+$logo-font: "Satisfy";
+$sanserif: "Jost";
+$serif: "Lora";
+
+$bp-phone: 640px;
+$bp-small-screen: 684px;
+$bp-tablet: 768px;
+$bp-tablet-ls: 1024px;
+$bp-desktop: 1280px;
+$bp-container: 1600px;
+
+.cta-button-blue {
+  display: relative;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 1.2em;
+  max-width: 300px;
+  z-index: 1500;
+  background: $blue-button;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: jost;
+  padding: 1em 10vw;
+  border-radius: 7px;
+  color: #fff;
+  font-size: 1.2em;
+  box-shadow: 0 0 5px $menu-bg;
+
+  @media (min-width: $bp-phone) {
+    right: 20vw;
+    margin: auto;
+    padding: 1em 3em;
+  }
+
+  @media (min-width: $bp-small-screen) {
+    right: 20vw;
+    margin: auto;
+    padding: 1em 3em;
+  }
+
+  &:hover,
+  &:focus {
+    background: $blue-shadow;
+  }
+}
+
+.cta-button-orange {
+  display: relative;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 1.2em;
+  max-width: 300px;
+  z-index: 1500;
+  background: $orange-button;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: jost;
+  padding: 1em 10vw;
+  border-radius: 7px;
+  color: #fff;
+  font-size: 1.2em;
+  box-shadow: 0 0 5px $menu-bg;
+
+  @media (min-width: $bp-phone) {
+    right: 20vw;
+    margin: auto;
+    padding: 1em 3em;
+  }
+
+  @media (min-width: $bp-small-screen) {
+    right: 20vw;
+    margin: auto;
+    padding: 1em 3em;
+  }
+
+  &:hover,
+  &:focus {
+    background: $orange-shadow;
+  }
+}

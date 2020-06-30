@@ -1,0 +1,24 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #a9b3cc;
+$secondary-color: #567b96;
+$header-bg: #1e2a4b;
+$menu-a: #d0e4f2;
+$menu-a-hover-tablet: #7aaacc;
+$menu-bg: #151e36;
+$logo-font: "Satisfy";
+$sanserif: "Jost";
+$serif: "Lora";
+
+$bp-phone: 640px;
+$bp-tablet: 768px;
+$bp-tablet-ls: 1024px;
+$bp-desktop: 1280px;
+
+//header
+.footer {
+  text-align: center;
+  color: $primary-color;
+  position: relative;
+  background: $dark-blue;
+  border: 3px solid magenta;
+}
