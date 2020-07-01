@@ -7,7 +7,7 @@ import Layout from "../components/layout"
 import IsuVideo from "../videos/isuniocha-no-sound.mp4"
 import { HeroPanel, TextPanel, VideoPanel } from "../components/panel"
 
-import About from "./about"
+import { About, Services } from "./about"
 
 
 
@@ -56,7 +56,7 @@ export default function App({ data }) {
         buttonText="Learn More"
         to="/about"
       />
-
+      <Services />
       <About />
 
     </Layout >

@@ -732,6 +732,15 @@ html {
   }
 }
 
+#services {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background: $navy-blue;
+  color: $primary-color;
+}
+
 .footer {
   text-align: center;
   color: $blue-font;

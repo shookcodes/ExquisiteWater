@@ -1,13 +1,14 @@
 import React from "react";
 import Image from "gatsby-image";
 import Wrapper from "../components/wrapper";
-import Amanda from "../images/about-amanda.jpg"
+import Amanda from "../images/about-amanda.jpg";
+import { IoIosWater } from '/react-icons/io';
 
 
 
 
 
-export default function About() {
+function About() {
 
     return (
 
@@ -33,3 +34,28 @@ export default function About() {
 
     )
 }
+
+function Services() {
+    return (
+        <div className="panels" id="services">
+            <h2>Our Services</h2>
+            <div>
+                <span><IoIosWater /></span>
+                <span>Water Testing</span>
+            </div>
+            <div>
+                <span><IoIosWater /></span>
+                <span>Technology</span>
+            </div>
+            <div>
+                <span><IoIosWater /></span>
+                <span>Community Support</span>
+            </div>
+
+        </div>
+
+    )
+}
+
+export { About, Services }
+
