@@ -50,6 +50,9 @@ $bp-tablet-ls: 1024px;
 $bp-desktop: 1280px;
 $bp-container: 1600px;
 
+$image-radius: 7px;
+$image-shadow: 4px 4px 15px rgba(21, 30, 54, 0.5);
+
 * {
   box-sizing: border-box;
 }
@@ -63,6 +66,7 @@ $bp-container: 1600px;
   }
 }
 
+//GLOBAL settings
 html {
   background-color: $light-font-hover-tablet;
 
@@ -96,6 +100,15 @@ html {
   }
 }
 
+.image {
+  max-width: 100%;
+  flex-grow: 1;
+  border-radius: $image-radius;
+  margin-top: 2em;
+  box-shadow: $image-shadow;
+}
+
+//container css
 .container {
   position: absolute;
   width: 100%;
@@ -219,7 +232,7 @@ html {
       height: 80%;
       background: $navy-blue;
       font-family: jost;
-      border-radius: 7px;
+      border-radius: $image-radius;
       min-height: 250px;
       max-height: 350px;
 
@@ -261,7 +274,7 @@ html {
         vertical-align: middle;
         background: $orange-button;
         color: #fff;
-        border-radius: 7px;
+        border-radius: $image-radius;
         padding: 10px 35px;
 
         margin-top: 3px;
@@ -439,7 +452,7 @@ html {
   text-transform: uppercase;
   font-family: "jost";
   padding: 1em 10vw;
-  border-radius: 7px;
+  border-radius: $image-radius;
   color: #fff;
   font-size: 1.2em;
   box-shadow: 0 0 5px $navy-blue;
@@ -738,16 +751,12 @@ html {
     .about-column {
       max-width: 100%;
       padding: 0 2em;
+      margin-bottom: 2em;
 
       @media (min-width: $bp-tablet) {
         flex-direction: row;
         max-width: 50%;
       }
-    }
-
-    .about-image {
-      max-width: 100%;
-      flex-grow: 1;
     }
   }
 }
@@ -803,7 +812,7 @@ html {
     color: $dark-blue;
     margin: 2em;
     padding: 2em 2em;
-    border-radius: 7px;
+    border-radius: $image-radius;
     min-height: 45vh;
 
     .services-icon {

@@ -7,6 +7,9 @@ import { IoIosWater } from "react-icons/io";
 import { FaPeopleCarry } from "react-icons/fa";
 import { GiWateringCan } from "react-icons/gi";
 import Amanda from "../images/about-amanda.jpg";
+import AmandaWaterFilter from "../images/amanda-water-filter-bag.jpg"
+import WaterTesting from "../images/testing-river.jpg"
+//import CommunitySupport from "../images/community-support.jpg"
 
 function About() {
     return (
@@ -16,28 +19,33 @@ function About() {
             </div>
 
             <div className="about-content">
-                <div className="about-column">
-                    <Wrapper>
-                        <p>
-                            ExquisiteWater was founded in 2015 by Amanda Sunny, a
-                            Nigerian-American environmental consultant (currently based in San
-                            Jose, CA). After visiting Nigeria several times throughout her
-                            life, she grew discouraged at the lack of water sanitation near
-                            her mother's home village in south-eastern Nigeria.
+                <FadeInSection>
+                    <div className="about-column">
+                        <Wrapper>
+                            <p>
+                                ExquisiteWater was founded in 2015 by Amanda Sunny, a
+                                Nigerian-American environmental consultant (currently based in San
+                                Jose, CA). After visiting Nigeria several times throughout her
+                                life, she grew discouraged at the lack of water sanitation near
+                                her mother's home village in south-eastern Nigeria.
             </p>
-                        <p>
-                            Amanda received her Master's Degree in Public Health in 2015, and
-                            decided to use her knowledge and understanding to bring water
-                            sanitation solutions to Nigeria. She has team members in Nigeria,
-                            as well as across the United States. Together the ExquisiteWater
-                            team aims to provide education, support, and community-maintained
-              sanitization tools and methods to communities in need.{" "}
-                        </p>
-                    </Wrapper>
-                </div>
-                <div className="about-column">
-                    <img className="about-image" src={Amanda} alt="Photo of Amanda" />
-                </div>
+                            <p>
+                                Amanda received her Master's Degree in Public Health in 2015, and
+                                decided to use her knowledge and understanding to bring water
+                                sanitation solutions to Nigeria. She has team members in Nigeria,
+                                as well as across the United States. Together the ExquisiteWater
+                                team aims to provide education, support, and community-maintained
+                                sanitization tools and methods to communities in need.
+                        </p><br />
+                        </Wrapper>
+
+                    </div>
+                </FadeInSection>
+                <FadeInSection>
+                    <div className="about-column">
+                        <img className="image" src={Amanda} alt="Photo of Amanda" />
+                    </div>
+                </FadeInSection>
             </div>
         </div>
     );
@@ -59,6 +67,7 @@ function Services() {
                             villages supply their water from. We then bring our results to the
                             local leaders and governments and discuss solutions.
           </span>
+                        <img src={WaterTesting} class="image" alt="Testing water at a river." />
                     </div>
                 </FadeInSection>
                 <FadeInSection>
@@ -73,6 +82,7 @@ function Services() {
                             areas. Technologies include water boiling kits, ferrocement tanks,
                             and bio-char purification chambers.
           </span>
+
                     </div>
                 </FadeInSection>
                 <FadeInSection>
