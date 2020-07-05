@@ -2,7 +2,7 @@ import React from "react";
 import Image from 'gatsby-image';
 import { CTAButtonOrange, CTAButtonBlue } from "../components/cta-button.js";
 import { FaAngleDown } from 'react-icons/fa';
-
+import { FadeInSection } from "../components/fadeInAnimation.js"
 
 
 
@@ -30,11 +30,11 @@ function TextPanel(props) {
     return (
         <div className="panels" id={props.id}>
             <div className={props.class} >
-
-                <h2>{props.h2}</h2>
-
+                <FadeInSection>
+                    <h2>{props.h2}</h2>
+                </FadeInSection>
                 <br></br>
-                <span className={props.pageText}><p>{props.p}</p></span>
+                <FadeInSection><span className={props.pageText}><p>{props.p}</p></span></FadeInSection>
             </div>
             <FaAngleDown className="down" />
         </div>
@@ -58,9 +58,11 @@ function VideoPanel(props) {
                 />
                 Your browser does not support HTML5 video.
             </video>
+
             <div className="video-info">
-                <span className="video-text"><p>{props.p}</p></span>
-                <CTAButtonBlue className="video-cta" text={props.buttonText} to={props.to} />
+                <FadeInSection>
+                    <span className="video-text"><p>{props.p}</p></span>
+                    <CTAButtonBlue className="video-cta" text={props.buttonText} to={props.to} /></FadeInSection>
             </div>
         </div>
     )

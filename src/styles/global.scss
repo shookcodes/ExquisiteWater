@@ -54,6 +54,15 @@ $bp-container: 1600px;
   box-sizing: border-box;
 }
 
+//Removes transition animations on screens requesting reduced motion or slow-loading accessibility
+@media screen and (prefers-reduced-motion: reduce), (update: slow) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important; /* Hat tip Nick/cssremedy (https://css-tricks.com/revisiting-prefers-reduced-motion-the-reduced-motion-media-query/#comment-1700170) */
+    transition-duration: 0.001ms !important;
+  }
+}
+
 html {
   background-color: $light-font-hover-tablet;
 
@@ -614,6 +623,17 @@ html {
       color: $primary-color;
       flex-grow: 1;
       padding: 3em;
+
+      animation: textIn ease 3s;
+
+      @keyframes textIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
     }
   }
 
@@ -732,13 +752,64 @@ html {
   }
 }
 
+@mixin dark-font {
+  h1 {
+    color: $dark-blue;
+  }
+
+  h2 {
+    color: $dark-blue;
+  }
+
+  h3 {
+    color: $dark-blue;
+  }
+
+  p {
+    color: $dark-blue;
+  }
+}
+
 #services {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
   background: $navy-blue;
   color: $primary-color;
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 2em;
+  min-height: 104vh;
+
+  .services {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    width: 1600px;
+    max-width: 100%;
+    font-family: $sanserif;
+    padding-top: 1em;
+    @include dark-font;
+    margin: 0 1em;
+  }
+
+  .column {
+    flex-direction: column;
+    text-align: flex-start;
+    align-items: center;
+    flex-basis: auto;
+    max-width: 400px;
+    flex: 1 1 auto;
+    background: $primary-color;
+    color: $dark-blue;
+    margin: 2em;
+    padding: 2em 2em;
+    border-radius: 7px;
+    min-height: 45vh;
+
+    .services-icon {
+      font-size: 3em;
+    }
+  }
 }
 
 .footer {
@@ -768,4 +839,18 @@ html {
     padding-top: 2em;
     font-family: $sanserif;
   }
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(10vh);
+  visibility: hidden;
+  transition: opacity 1200ms ease-out, transform 600ms ease-out,
+    visibility 1200ms ease-out;
+  will-change: opacity, transform, visibility;
+}
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
 }
